@@ -15,7 +15,7 @@ if (!process.env.GITHUB_TOKEN) {
   throw new Error("GITHUB_TOKEN is required");
 }
 
-const llm = createOpenAILLM({
+const llm = lcreateOpenAILLM({
   apiKey: process.env.OPENAI_API_KEY,
   model: "gpt-4o-mini",
 });
