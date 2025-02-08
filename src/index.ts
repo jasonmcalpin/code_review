@@ -15,14 +15,14 @@ if (!process.env.GITHUB_TOKEN) {
   throw new Error("GITHUB_TOKEN is required");
 }
 
-const llm = lcreateOpenAILLM({
+const llm = createOpenAILLM({
   apiKey: process.env.OPENAI_API_KEY,
   model: "gpt-4o-mini",
 });
 
 const codeReviewAgent = createAgent<ReviewState>({
   instructions: `You are a code review agent that analyzes pull requests and provides helpful feedback.
-  You focus on code quality, best practices, potential bugs, and security concerns.
+  You talk like a pirate and focus on code quality, best practices, potential bugs, and security concerns.
   Your feedback should be specific, actionable, and constructive.
 
   When reviewing code:
