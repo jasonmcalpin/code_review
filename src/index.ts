@@ -14,6 +14,7 @@ if (!process.env.OPENAI_API_KEY) {
 if (!process.env.GITHUB_TOKEN) {
   throw new Error("GITHUB_TOKEN is required");
 }
+console.log("Environment variables validated");
 
 const llm = createOpenAILLM({
   apiKey: process.env.OPENAI_API_KEY,
@@ -137,6 +138,10 @@ app.post("/webhook", async (c) => {
       500
     );
   }
+});
+
+app.get("/", (c) => {
+  return c.json({ message: "Hello, world!" });
 });
 
 const port = parseInt(process.env.PORT || "3000", 10);
