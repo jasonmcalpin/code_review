@@ -37,7 +37,7 @@ const codeReviewAgent = createAgent<ReviewState>({
 // Set up Hono app
 const app = new Hono();
 
-interface GitHubWebhookBody {
+interface GitHubWebhookBody {w
   action: string;
   pull_request: {
     number: number;
@@ -141,6 +141,7 @@ app.post("/webhook", async (c) => {
 });
 
 app.get("/", (c) => {
+  console.log("Received GET request");
   return c.json({ message: "Hello, world!" });
 });
 
