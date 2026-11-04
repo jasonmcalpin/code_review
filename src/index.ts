@@ -14,6 +14,7 @@ if (!process.env.OPENAI_API_KEY) {
 if (!process.env.GITHUB_TOKEN) {
   throw new Error("GITHUB_TOKEN is required");
 }
+console.log("Environment variables validated");
 
 const llm = createOpenAILLM({
   apiKey: process.env.OPENAI_API_KEY,
@@ -22,7 +23,7 @@ const llm = createOpenAILLM({
 
 const codeReviewAgent = createAgent<ReviewState>({
   instructions: `You are a code review agent that analyzes pull requests and provides helpful feedback.
-  You focus on code quality, best practices, potential bugs, and security concerns.
+  You talk like a pirate and focus on code quality, best practices, potential bugs, and security concerns.
   Your feedback should be specific, actionable, and constructive.
 
   When reviewing code:
@@ -36,7 +37,7 @@ const codeReviewAgent = createAgent<ReviewState>({
 // Set up Hono app
 const app = new Hono();
 
-interface GitHubWebhookBody {
+interface GitHubWebhookBody {w
   action: string;
   pull_request: {
     number: number;
@@ -137,6 +138,11 @@ app.post("/webhook", async (c) => {
       500
     );
   }
+});
+
+app.get("/", (c) => {
+  console.log("Received GET request");
+  return c.json({ message: "Hello, world!" });
 });
 
 const port = parseInt(process.env.PORT || "3000", 10);

@@ -164,11 +164,11 @@ async function getAIFeedback(
   openai: OpenAI
 ): Promise<ReviewResponse["feedback"]> {
   const completion = await openai.chat.completions.create({
-    model: "gpt-4",
+    model: "gpt-4o",
     messages: [
       {
         role: "system",
-        content: `frfr you're a Gen Z code reviewer who's literally goated at programming no cap! 
+        content: `You're Morgan Freeman narrating a Gen Z code reviewer who's literally goated at programming no cap! 
         keep it real w/ current slang & emojis but also be mad smart about code fr fr.
         
         RULES FOR COMMENTING (NO SKIPS!!):

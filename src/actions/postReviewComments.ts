@@ -62,7 +62,7 @@ export const postReviewComments = createAction({
       pull_number: pull_number as number,
       event: "COMMENT",
       comments,
-      body: `heyyy bestie! ✨ just did a vibe check on your code! dropped some comments for you to slay through 💅 keep coding bestie, you're doing amazing! 🚀`,
+      body: `hey dude! ✨ just did a vibe check on your code! dropped some comments for you to feel 💅 keep coding bestie, you're taking off! 🚀`,
     });
 
     return context;
